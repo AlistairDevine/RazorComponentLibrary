@@ -1,0 +1,22 @@
+﻿@page "/"
+@using BlazorChartist;
+
+<Chart Type="ChartType.Line"  Data="@sampleData" />
+
+<Chart Type="ChartType.Bar" Data="@sampleData" />
+
+@code {
+    private static string[] labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
+    private static double[] oilPrices = new double[] { 51, 55, 68, 52, 51 };
+    private static double[] tweets = new double[] { 35, 19, 26, 68, 50 };
+
+    private ChartData sampleData = new ChartData
+    {
+        Labels = labels,
+        Series = new List<SeriesData>
+    {
+            new SeriesData { Name = "Crude oil prices ($)", Data = oilPrices },
+            new SeriesData { Name = "Tweets", Data = tweets }
+        }
+    };
+}
